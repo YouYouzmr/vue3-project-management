@@ -1,0 +1,64 @@
+@import './baseColor.scss';
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+#app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+  }
+
+// 左侧导航条
+.left-menu {
+    position: fixed;
+    top: 0px;
+    left: 0;
+    width: 160px;
+    height: 100%;
+    text-align: left;
+    overflow: hidden;
+    background-color: $whiteColor;
+
+    .menu-title {
+        padding: 10px 10px 10px 20px;
+        border-right: 1px solid $borderGrayColor;
+    }
+}
+
+.container {
+    position: absolute;
+    width: calc( 100% - 160px );
+    min-height: 100%;
+    margin-left: 160px;
+    background-color: $baseBgColor;
+
+    .navbar {
+        position: sticky;
+        top: 0;
+        line-height: 44px;
+        padding: 0 15px;
+        background-color: $whiteColor;
+    }
+
+    .content {
+        padding: 10px;
+        text-align: left;
+        height: 10000px;
+    }
+}
+
+.inlineBlock {
+    display: inline-block;
+}
+
+.fr {
+    float: right;
+}
+
+.fl {
+    float: left;
+}
