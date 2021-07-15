@@ -1,17 +1,13 @@
 <template>
     <div>
-        login page
+        home page
     </div>
 </template>
 
 <script>
-export default {
-    setup () {
+    export default {
         
-
-        return {}
     }
-}
 </script>
 
 <style lang="scss" scoped>

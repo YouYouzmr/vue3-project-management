@@ -1,23 +1,18 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import router from './router'
+import store from './store'
 
-// import style
-import "element3/lib/theme-chalk/index.css"
-import Element3 from 'element3'
+// import Antd from 'ant-design-vue';
+// import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
+import ElementPlus from "element-plus"
+import "./styles/theme.scss"
 
-import "@/styles/index.scss"
+import "./styles/index.scss"
 
-// import router
-import router from './router/index'
 
-// global import
-createApp(App).use(Element3).use(router).mount("#app")
-
-// or according to the need to import 
-// import {
-//     ElLink,
-//     ElButton,
-//     // ..
-// } from "element3"
-
-// createApp(App).use(ElLink).use(ElButton)
+createApp(App)
+    .use(ElementPlus)
+    .use(router)
+    .use(store)
+    .mount('#app')
