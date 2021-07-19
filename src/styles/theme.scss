@@ -1,6 +1,6 @@
 // 改变主题色变量;
 // 改变icon字体路径变量，必需;
-$--color-primary: teal;
+$--color-primary: var(--color-primary, blue);
 $--font-path: '~element-plus/lib/theme-chalk/fonts';
 
 @import "~element-plus/packages/theme-chalk/src/index";

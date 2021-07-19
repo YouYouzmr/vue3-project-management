@@ -1,6 +1,8 @@
 import sidebar from './sidebar.js'
+import theme from "./theme.js"
 
 const modules = {
-    sidebar
+    sidebar,
+    theme
 }
 export default modules

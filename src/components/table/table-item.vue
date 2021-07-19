@@ -1,16 +1,10 @@
 <template>
-    <div>
-
-    </div>
+    <el-table-column v-bind="$attrs"></el-table-column>
 </template>
 
 <script>
 export default {
-    setup () {
-        
-
-        return {}
-    }
+    inheritAttrs: false
 }
 </script>
 

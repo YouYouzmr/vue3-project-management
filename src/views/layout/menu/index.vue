@@ -1,18 +1,24 @@
 <template>
     <div class="navbar">
-        <i class="fold-i" @click="handleToggleColse" :class="[foldClass]"></i>
+        <i class="fold-i el-hover" @click="handleToggleColse" :class="[foldClass]"></i>
         <div class="fr">
-            <i class="el-icon-bell"></i>
+            <i class="el-icon-bell el-hover"></i>
+            <i class="el-hover el-icon-setting"></i>
+            <div class="el-hover">
+                <img :src="imgUrl" alt="头像"/>
+                登录人名字
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+
 export default {
     data() {
         return {
-
+            imgUrl: require('@/assets/logo.png')
         }
     },
     computed: {
@@ -30,6 +36,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.el-hover:hover {
+    background-color: #e6f7ff;
+}
 .navbar {
     height: 64px;
     line-height: 64px;
@@ -40,10 +49,6 @@ export default {
 
     i {
         line-height: 64px;
-
-        &:hover {
-            background-color: #e6f7ff;
-        }
     }
 
     .fold-i {
@@ -53,8 +58,26 @@ export default {
     }
 
     .fr {
+        display: flex;
+        line-height: 64px;
+
         i {
             padding: 0 10px;
+        }
+
+        div {
+            display: flex;
+            padding: 0 10px;
+            font-size: 14px;
+            align-items: center;
+
+            img{
+                width: 25px;
+                height: 25px;
+                border-radius: 100%;
+                border: 1px solid #999;
+                margin-right: 5px;
+            }
         }
     }
 }

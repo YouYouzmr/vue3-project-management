@@ -3,7 +3,12 @@
         <navbar/>
         <div class="layout-content">
             <menu-bar/>
-            <router-view></router-view>
+            <section>
+                <bread-crumb></bread-crumb>
+                <transition>
+                    <router-view></router-view>
+                </transition>
+            </section>
         </div>
     </div>
 </template>
@@ -11,11 +16,13 @@
 <script>
 import menuBar from "./menu/index"
 import navbar from "./navbar/index"
+import breadCrumb from "@/components/breadCrumb"
 
 export default {
     components: {
         menuBar,
-        navbar
+        navbar,
+        breadCrumb
     },
     computed: {
     },
@@ -36,6 +43,10 @@ export default {
         display: flex;
         flex-direction: column;
         flex: 1;
+    }
+
+    section {
+        padding: 15px;
     }
 }
 </style>
