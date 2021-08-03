@@ -2,12 +2,47 @@
     <div class="navbar">
         <i class="fold-i el-hover" @click="handleToggleColse" :class="[foldClass]"></i>
         <div class="fr">
+            <el-dropdown>
             <i class="el-icon-bell el-hover"></i>
+            <template #dropdown>
+                <el-dropdown-menu>
+                <el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>
+                <el-dropdown-item icon="el-icon-circle-plus">狮子头</el-dropdown-item>
+                <el-dropdown-item icon="el-icon-circle-plus-outline">螺蛳粉</el-dropdown-item>
+                <el-dropdown-item icon="el-icon-check">双皮奶</el-dropdown-item>
+                <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item>
+                </el-dropdown-menu>
+            </template>
+            </el-dropdown>
+            
+            <el-dropdown>
             <i class="el-hover el-icon-setting"></i>
-            <div class="el-hover">
-                <img :src="imgUrl" alt="头像"/>
-                登录人名字
-            </div>
+            <template #dropdown>
+                <el-dropdown-menu>
+                <el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>
+                <el-dropdown-item icon="el-icon-circle-plus">狮子头</el-dropdown-item>
+                <el-dropdown-item icon="el-icon-circle-plus-outline">螺蛳粉</el-dropdown-item>
+                <el-dropdown-item icon="el-icon-check">双皮奶</el-dropdown-item>
+                <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item>
+                </el-dropdown-menu>
+            </template>
+            </el-dropdown>
+            
+            <el-dropdown>
+                <div class="el-hover">
+                    <img :src="imgUrl" alt="头像"/>
+                    登录人名字
+                </div>
+                <template #dropdown>
+                    <el-dropdown-menu>
+                    <el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-circle-plus">狮子头</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-circle-plus-outline">螺蛳粉</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-check">双皮奶</el-dropdown-item>
+                    <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item>
+                    </el-dropdown-menu>
+                </template>
+            </el-dropdown>
         </div>
     </div>
 </template>
@@ -18,7 +53,7 @@ import { mapState } from 'vuex'
 export default {
     data() {
         return {
-            imgUrl: require('@/assets/logo.png')
+            imgUrl: require('@/assets/avatar.jpg')
         }
     },
     computed: {
@@ -70,12 +105,12 @@ export default {
             padding: 0 10px;
             font-size: 14px;
             align-items: center;
+            line-height: 64px;
 
             img{
                 width: 25px;
                 height: 25px;
                 border-radius: 100%;
-                border: 1px solid #999;
                 margin-right: 5px;
             }
         }

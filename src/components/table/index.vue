@@ -1,5 +1,5 @@
 <template>
-   <el-table :data="tableData">
+   <el-table size="small" :data="tableData">
        <table-item v-for="val in headerData" :key="val.id" :prop="val.prop" :label="val.label"></table-item>
    </el-table>
 </template>
@@ -21,13 +21,12 @@ export default {
             }
         }
     },
-    setup () {
-    
-        return {}
-    },
     components: {
         tableItem
-    }
+    },
+    mounted () {
+        console.log(this.tableData);
+    },
 }
 </script>
 

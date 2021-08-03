@@ -1,8 +1,8 @@
 import sidebar from './sidebar.js'
-import theme from "./theme.js"
+import routesList from "./routes.js"
 
 const modules = {
     sidebar,
-    theme
+    routesList
 }
 export default modules

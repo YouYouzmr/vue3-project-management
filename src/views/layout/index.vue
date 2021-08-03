@@ -3,12 +3,13 @@
         <navbar/>
         <div class="layout-content">
             <menu-bar/>
-            <section>
-                <bread-crumb></bread-crumb>
+            <main>
+                <!-- <bread-crumb></bread-crumb> -->
                 <transition>
                     <router-view></router-view>
                 </transition>
-            </section>
+            </main>
+            <footer-bar></footer-bar>
         </div>
     </div>
 </template>
@@ -16,13 +17,15 @@
 <script>
 import menuBar from "./menu/index"
 import navbar from "./navbar/index"
-import breadCrumb from "@/components/breadCrumb"
+// import breadCrumb from "@/components/breadCrumb"
+import footerBar from "./footer/index"
 
 export default {
     components: {
         menuBar,
         navbar,
-        breadCrumb
+        // breadCrumb,
+        footerBar
     },
     computed: {
     },
@@ -38,15 +41,17 @@ export default {
     background-color: #f0f2f5;
 
     .layout-content {
-        min-height: 100vh;
+        max-height: 100vh;
         overflow-x: hidden;
+        overflow-y: auto;
         display: flex;
         flex-direction: column;
         flex: 1;
     }
 
-    section {
+    main {
         padding: 15px;
+        min-height: 100vh;
     }
 }
 </style>

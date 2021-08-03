@@ -43,24 +43,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.login {
-    width: 40vw;
-    min-width: 450px;
-    margin: 20vh auto 0;
-    padding: 20px 25px;
-    box-shadow: 0 0px 5px 2px #999;
-    border-radius: 3px;
-
-    .loginTitle {
-        text-align: center;
-        font-weight: 600px;
-        font-size: 30px;
-        margin-bottom: 30px;
-        color: #505050;
-    }
-
-    .btn {
-        width: 100%;
-    }
-}
+@import '@/styles/login.scss'
 </style>

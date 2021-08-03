@@ -1,0 +1,19 @@
+.layout {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    flex: auto;
+    background-color: #f0f2f5;
+
+    .layout-content {
+        min-height: 100vh;
+        overflow-x: hidden;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    main {
+        padding: 15px;
+    }
+}

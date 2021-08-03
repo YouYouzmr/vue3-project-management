@@ -1,5 +1,5 @@
 <template>
-  <div :class="[collapseClass]" class="menu">
+  <aside :class="[collapseClass]" class="menu">
     <div class="logo">头部名称</div>
     <el-menu
       :collapse="isCollapse"
@@ -12,52 +12,19 @@
       text-color="hsla(0,0%,100%,.65)"
       active-text-color="#fff"
     >
-      <el-submenu index="1">
+      <el-submenu v-for="(val, index) in routes" :key="val.path" :index="`${index+1}`">
         <template #title>
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
+          <i :class="val.meta.icon"></i>
+          <span>{{val.meta.name}}</span>
         </template>
-        <el-menu-item-group>
-          <template #title>分组一</template>
-          <el-menu-item index="1-1">选项1</el-menu-item>
-          <el-menu-item index="1-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="1-3">选项3</el-menu-item>
-        </el-menu-item-group>
-        <el-submenu index="1-4">
-          <template #title>选项4</template>
-          <el-menu-item index="1-4-1">选项1</el-menu-item>
-        </el-submenu>
-      </el-submenu>
-      <el-menu-item index="2">
-        <i class="el-icon-menu"></i>
-        <template #title>导航二</template>
-      </el-menu-item>
-      <el-menu-item index="3" disabled>
-        <i class="el-icon-document"></i>
-        <template #title>导航三</template>
-      </el-menu-item>
-      <el-menu-item index="4">
-        <i class="el-icon-setting"></i>
-        <template #title>导航四</template>
-      </el-menu-item>
-      <el-submenu index="5">
-        <template #title>
-          <i class="el-icon-location"></i>
-          <span>导航一</span>
-        </template>
-        <el-menu-item-group>
-          <template #title>分组一</template>
-          <el-menu-item index="5-1">选项1</el-menu-item>
-          <el-menu-item index="5-2">选项2</el-menu-item>
-        </el-menu-item-group>
-        <el-menu-item-group title="分组2">
-          <el-menu-item index="5-3">选项3</el-menu-item>
+        <el-menu-item-group v-if="val.children">
+          <el-menu-item v-for="(item, ind) in val.children" :key="item.path" :index="`${index+1}-${ind+1}`">
+            <router-link :to="`${val.path}/${item.path}`">{{item.meta.name}}</router-link>
+          </el-menu-item>
         </el-menu-item-group>
       </el-submenu>
     </el-menu>
-  </div>
+  </aside>
 </template>
 
 <script>
@@ -66,18 +33,24 @@ export default {
   computed: {
     ...mapState(["sidebar"]),
     isCollapse() {
-      console.log("isCollapse: ", this.sidebar.isCollapse);
       return this.sidebar.isCollapse;
     },
     collapseClass() {
-      console.log("isCollapse: ", this.sidebar.isCollapse);
       return !this.sidebar.isCollapse ? "menu-unfold" : "menu-fold";
-    },
+    }
   },
   data() {
-    return {};
+    return {
+      routes: []
+    };
+  },
+  mounted () {
+    this.getRoutes()
   },
   methods: {
+    getRoutes() {
+      this.routes = this.$router.options.routes.filter(val => val.path!=='/')
+    },
     handleOpen(key, keyPath) {
       console.log(key, keyPath);
     },
@@ -99,7 +72,7 @@ export default {
   text-align: left;
   overflow: hidden;
   background-color: #001529;
-  transition: all 0.2s;
+  transition: width 0.2s;
 
   &.menu-fold {
     width: 63px;
@@ -114,7 +87,7 @@ export default {
     font-size: 20px;
     font-weight: 600px;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: all 0.2s;
   }
 
   .el-menu-vertical-demo {

@@ -3,7 +3,7 @@
         <el-breadcrumb separator-class="el-icon-arrow-right">
             <transition-group>
                 <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-                <el-breadcrumb-item>活动管理</el-breadcrumb-item>
+                <el-breadcrumb-item>{{$router.currentRoute.value.meta.name}}</el-breadcrumb-item>
             </transition-group>
         </el-breadcrumb>
     </div>
@@ -11,11 +11,13 @@
 
 <script>
 export default {
-    setup () {
-        
-
-        return {}
-    }
+    data() {
+        return {
+            
+        }
+    },
+    mounted () {
+    },
 }
 </script>
 
