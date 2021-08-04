@@ -17,6 +17,18 @@ service.interceptors.request.use(config => {
         config.headers["X-Token"] = getToken();
     }
 
+    // file upload
+    if(config.file) {
+        config.headers = {
+            "Content-Type": "multipart/form-data"
+        }
+    }
+    else {
+        config.headers = {
+            "Content-Type": "application/json; charset=utf-8"
+        }
+    }
+
     return config
 }, error => {
     // Do something with request error

@@ -1,12 +1,15 @@
 <template>
     <div class="page-layout">
         <page-header>
+            <page-title>
+                标题
+                <template #extra>
+                <el-button size="small" type="primary">按钮</el-button>
+                </template>
+            </page-title>
             <page-header-content>
                 <template #default>
-                  <user-avatar class="flex-box"></user-avatar>
-                </template>
-                <template #extra>
-                  <statistic-box></statistic-box>
+
                 </template>
             </page-header-content>
         </page-header>
@@ -17,17 +20,13 @@
 import pageHeader from "@/components/pageLayout/pageHeader"
 import pageTitle from "@/components/pageLayout/pageTitle"
 import pageHeaderContent from "@/components/pageLayout/pageHeaderContent"
-import userAvatar from "@/components/userInfo/userAvatar"
-import statisticBox from "@/components/statistic/index"
 
 
 export default {
     components: {
         pageHeader,
         pageTitle,
-        pageHeaderContent,
-        userAvatar,
-        statisticBox
+        pageHeaderContent
     },
 }
 </script>

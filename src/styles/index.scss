@@ -33,3 +33,14 @@ a, a:hover, a:active {
 .small {
     font-size: 0.8em;
 }
+
+.flex-box {
+    display: flex;
+}
+
+.base-box {
+    padding: 15px;
+    border-radius: 3px;
+    background-color: #fff;
+    margin-bottom: 15px;
+}

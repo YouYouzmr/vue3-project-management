@@ -1,10 +1,14 @@
 <template>
     <el-row class="table-card" :gutter="1" type="flex">
         <el-col :span="24">
-            <div class="card-title">{{title}}</div>
+            <div class="card-title">
+                {{title}}
+                <slot name="title"></slot>
+            </div>
         </el-col>
         <el-col v-for="val in 6" :xs="12" :sm="12" :md="8" :lg="8" :xl="8">
             <t-card></t-card>
+            <slot></slot>
         </el-col>
     </el-row>
 </template>
@@ -15,7 +19,7 @@ import tCard from "./tCard.vue"
         props: {
             title: {
                 type: String,
-                default: '标题'
+                default: ''
             },
             list: {
                 type: Array,

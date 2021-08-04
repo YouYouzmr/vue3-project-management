@@ -1,6 +1,12 @@
 <template>
   <div>
-    <table-list :tableData="tableData" :headerData="headerData"></table-list>
+    <table-list :tableData="tableData" :headerData="headerData">
+      <template v-slot:operate>
+        <el-button @click="seeDetail" type="primary" size="mini">详情</el-button>
+        <el-button @click="deleteItem" type="danger" size="mini">删除</el-button>
+        <el-button @click="editItem" type="success" size="mini">编辑</el-button>
+      </template>
+    </table-list>
   </div>
 </template>
 

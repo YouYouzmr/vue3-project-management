@@ -4,7 +4,7 @@
     <el-menu
       :collapse="isCollapse"
       :uniqueOpened="true"
-      default-active="2"
+      :default-active="active"
       class="el-menu-vertical-demo"
       @open="handleOpen"
       @close="handleClose"
@@ -12,13 +12,13 @@
       text-color="hsla(0,0%,100%,.65)"
       active-text-color="#fff"
     >
-      <el-submenu v-for="(val, index) in routes" :key="val.path" :index="`${index+1}`">
+      <el-submenu v-for="(val, index) in routes" :key="val.path" :index="val.path">
         <template #title>
           <i :class="val.meta.icon"></i>
           <span>{{val.meta.name}}</span>
         </template>
         <el-menu-item-group v-if="val.children">
-          <el-menu-item v-for="(item, ind) in val.children" :key="item.path" :index="`${index+1}-${ind+1}`">
+          <el-menu-item v-for="(item, ind) in val.children" :key="item.path" :index="`${val.path}/${item.path}`">
             <router-link :to="`${val.path}/${item.path}`">{{item.meta.name}}</router-link>
           </el-menu-item>
         </el-menu-item-group>
@@ -37,6 +37,9 @@ export default {
     },
     collapseClass() {
       return !this.sidebar.isCollapse ? "menu-unfold" : "menu-fold";
+    },
+    active() {
+      return this.$route.path
     }
   },
   data() {

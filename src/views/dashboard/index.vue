@@ -3,7 +3,15 @@
         <!-- 头部首页个人信息 -->
         <user-info></user-info>
 
-        <table-card></table-card>
+        <table-card v-for="val in 2">
+            <template v-slot:title>
+                项目名称{{val}}
+                <span class="fr baseColor pointer">更多</span>
+            </template>
+            <template v-slot:default>
+                
+            </template>
+        </table-card>
     </div>
 </template>
 

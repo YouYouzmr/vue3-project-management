@@ -18,7 +18,7 @@ const routes = [
                 meta: {icon: '', name: '工作台'},
             },
             {
-                path: 'index',
+                path: 'analysis',
                 component: () => require("@/views/dashboard/analysis"),
                 meta: {icon: '', name: '分析页'},
             },
@@ -30,10 +30,15 @@ const routes = [
         meta: {icon: '', name: '基础组件'},
         children: [
             {
-                path: 'index',
-                component: () => require("@/views/main/index"),
+                path: 'table',
+                component: () => require("@/views/main/table"),
                 meta: {icon: '', name: 'table表单'},
-            }
+            },
+            {
+                path: 'card',
+                component: () => require("@/views/main/card"),
+                meta: {icon: '', name: 'card'},
+            },
         ]
     },
     {
@@ -45,7 +50,12 @@ const routes = [
                 path: 'index',
                 component: () => require('@/views/staff/index'),
                 meta: {icon: '', name: '员工花名册'}
-            }
+            },
+            {
+                path: 'detail',
+                component: () => require('@/views/staff/detail'),
+                meta: {icon: '', name: '员工详情'}
+            },
         ]
     },
     {
@@ -57,6 +67,18 @@ const routes = [
                 path: 'index',
                 component: () => require("@/views/project/index"),
                 meta: {icon: '', name: '项目列表'}
+            }
+        ]
+    },
+    {
+        path: '/system',
+        component: layout,
+        meta: {icon: '', name: '系统管理'},
+        childrent: [
+            {
+                path: 'timeout',
+                component: () => require("@/views/system/timeout"),
+                meta: {icon: '', name: "定时管理"}
             }
         ]
     }

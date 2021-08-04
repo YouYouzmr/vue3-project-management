@@ -14,7 +14,7 @@
                     <!-- <el-link class="fr" type="primary">忘记密码</el-link> -->
                 </el-form-item>
                 <el-form-item>
-                    <el-button class="btn" type="primary" @click="submit('form')">提交</el-button>
+                    <el-button class="btn" type="primary" @click="submit">提交</el-button>
                 </el-form-item>
             </el-form>
         </div>
@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         submit() {
-            
+            this.$router.push({path: '/dashboard/index'})
         }
     },
 }

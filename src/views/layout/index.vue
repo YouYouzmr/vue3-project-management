@@ -2,6 +2,7 @@
     <div class="layout">
         <navbar/>
         <div class="layout-content">
+        <el-scrollbar height="100vh">
             <menu-bar/>
             <main>
                 <!-- <bread-crumb></bread-crumb> -->
@@ -9,7 +10,8 @@
                     <router-view></router-view>
                 </transition>
             </main>
-            <footer-bar></footer-bar>
+            <!-- <footer-bar></footer-bar> -->
+        </el-scrollbar>
         </div>
     </div>
 </template>
@@ -36,22 +38,21 @@ export default {
 .layout {
     display: flex;
     flex-direction: row;
-    min-height: 100vh;
     flex: auto;
     background-color: #f0f2f5;
 
     .layout-content {
-        max-height: 100vh;
+        position: relative;
+        height: 100vh;
         overflow-x: hidden;
         overflow-y: auto;
         display: flex;
         flex-direction: column;
         flex: 1;
-    }
 
-    main {
-        padding: 15px;
-        min-height: 100vh;
+        main {
+            padding: 15px;
+        }
     }
 }
 </style>
