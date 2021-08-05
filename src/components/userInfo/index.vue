@@ -15,7 +15,6 @@
 
 <script>
 import pageHeader from "@/components/pageLayout/pageHeader"
-import pageTitle from "@/components/pageLayout/pageTitle"
 import pageHeaderContent from "@/components/pageLayout/pageHeaderContent"
 import userAvatar from "@/components/userInfo/userAvatar"
 import statisticBox from "@/components/statistic/index"
@@ -24,7 +23,6 @@ import statisticBox from "@/components/statistic/index"
 export default {
     components: {
         pageHeader,
-        pageTitle,
         pageHeaderContent,
         userAvatar,
         statisticBox

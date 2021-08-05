@@ -14,7 +14,7 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "echarts": "^5.1.2",
-    "element-plus": "^1.0.2-beta.55",
+    "element-plus": "^1.0.2-beta.69",
     "element-theme": "^2.0.1",
     "sass": "^1.35.2",
     "sass-loader": "^10.2.0",

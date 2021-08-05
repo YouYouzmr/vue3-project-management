@@ -20,14 +20,14 @@
 import menuBar from "./menu/index"
 import navbar from "./navbar/index"
 // import breadCrumb from "@/components/breadCrumb"
-import footerBar from "./footer/index"
+// import footerBar from "./footer/index"
 
 export default {
     components: {
         menuBar,
         navbar,
         // breadCrumb,
-        footerBar
+        // footerBar
     },
     computed: {
     },

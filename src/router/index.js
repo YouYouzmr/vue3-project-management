@@ -38,36 +38,24 @@ const routes = [
                 path: 'card',
                 component: () => require("@/views/main/card"),
                 meta: {icon: '', name: 'card'},
-            },
+            }
         ]
     },
     {
         path: '/staff',
         component: layout,
-        meta: {icon: '', name: '员工管理'},
+        meta: {icon: '', name: '个人中心'},
         children: [
-            {
-                path: 'index',
-                component: () => require('@/views/staff/index'),
-                meta: {icon: '', name: '员工花名册'}
-            },
             {
                 path: 'detail',
                 component: () => require('@/views/staff/detail'),
-                meta: {icon: '', name: '员工详情'}
+                meta: {icon: '', name: '个人详情'}
             },
-        ]
-    },
-    {
-        path: '/project',
-        component: layout,
-        meta: {icon: '', name: '项目管理'},
-        children: [
             {
-                path: 'index',
-                component: () => require("@/views/project/index"),
-                meta: {icon: '', name: '项目列表'}
-            }
+                path: 'config',
+                component: () => require('@/views/staff/config'),
+                meta: {icon: '', name: '信息配置'}
+            },
         ]
     },
     {

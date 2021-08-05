@@ -12,13 +12,13 @@
       text-color="hsla(0,0%,100%,.65)"
       active-text-color="#fff"
     >
-      <el-submenu v-for="(val, index) in routes" :key="val.path" :index="val.path">
+      <el-submenu v-for="val in routes" :key="val.path" :index="val.path">
         <template #title>
           <i :class="val.meta.icon"></i>
           <span>{{val.meta.name}}</span>
         </template>
         <el-menu-item-group v-if="val.children">
-          <el-menu-item v-for="(item, ind) in val.children" :key="item.path" :index="`${val.path}/${item.path}`">
+          <el-menu-item v-for="item in val.children" :key="item.path" :index="`${val.path}/${item.path}`">
             <router-link :to="`${val.path}/${item.path}`">{{item.meta.name}}</router-link>
           </el-menu-item>
         </el-menu-item-group>
@@ -95,6 +95,12 @@ export default {
 
   .el-menu-vertical-demo {
     border-right: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu {
+    width: none;
   }
 }
 </style>

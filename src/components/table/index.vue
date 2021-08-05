@@ -1,6 +1,6 @@
 <template>
    <el-table size="small" :data="tableData">
-       <table-item v-for="(val, index) in headerData" :key="val.id" :prop="val.prop" :label="val.label"></table-item>
+       <table-item v-for="val in headerData" :key="val.id" :prop="val.prop" :label="val.label"></table-item>
    </el-table>
 </template>
 

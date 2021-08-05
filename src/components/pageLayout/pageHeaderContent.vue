@@ -19,6 +19,7 @@
 .page-header-content {
     display: flex; 
     width: 100%;
+    
     .page-header-main {
         flex: auto;
         width: 100%;
