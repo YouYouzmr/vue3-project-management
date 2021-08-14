@@ -6,9 +6,7 @@
             <menu-bar/>
             <main>
                 <!-- <bread-crumb></bread-crumb> -->
-                <transition>
-                    <router-view></router-view>
-                </transition>
+                <router-view></router-view>
             </main>
             <!-- <footer-bar></footer-bar> -->
         </el-scrollbar>

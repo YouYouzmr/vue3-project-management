@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": [
+            "dom",
+            "dom.iterable",
+            "esnext"
+        ],
+        "module": "esnext",
+        "baseUrl": "./",
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    },
+    "include": ["src/*"]
+}

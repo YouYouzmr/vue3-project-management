@@ -6,7 +6,12 @@
 export default {
   name: 'App',
   components: {
-  }
+  },
+  computed: {
+    key() {
+      return new Date().getTime()
+    }
+  },
 }
 </script>
 

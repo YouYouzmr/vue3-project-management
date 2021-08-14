@@ -1,11 +1,10 @@
-import { createApp } from "vue"
 import { createRouter, createWebHashHistory } from "vue-router"
 import layout from "@/views/layout/index"
 
 const routes = [
     {
         path: '/',
-        component: () => require('@/views/login/index')
+        component: () => import('@/views/login/index')
     },
     {
         path: '/dashboard',
@@ -14,12 +13,12 @@ const routes = [
         children: [
             {
                 path: 'index',
-                component: () => require("@/views/dashboard/index"),
+                component: () => import("@/views/dashboard/index"),
                 meta: {icon: '', name: '工作台'},
             },
             {
                 path: 'analysis',
-                component: () => require("@/views/dashboard/analysis"),
+                component: () => import("@/views/dashboard/analysis"),
                 meta: {icon: '', name: '分析页'},
             },
         ]
@@ -31,12 +30,12 @@ const routes = [
         children: [
             {
                 path: 'table',
-                component: () => require("@/views/main/table"),
+                component: () => import("@/views/main/table"),
                 meta: {icon: '', name: 'table表单'},
             },
             {
                 path: 'card',
-                component: () => require("@/views/main/card"),
+                component: () => import("@/views/main/card"),
                 meta: {icon: '', name: 'card'},
             }
         ]
@@ -48,12 +47,12 @@ const routes = [
         children: [
             {
                 path: 'detail',
-                component: () => require('@/views/staff/detail'),
+                component: () => import('@/views/staff/detail'),
                 meta: {icon: '', name: '个人详情'}
             },
             {
                 path: 'config',
-                component: () => require('@/views/staff/config'),
+                component: () => import('@/views/staff/config'),
                 meta: {icon: '', name: '信息配置'}
             },
         ]
@@ -65,7 +64,7 @@ const routes = [
         childrent: [
             {
                 path: 'timeout',
-                component: () => require("@/views/system/timeout"),
+                component: () => import("@/views/system/timeout"),
                 meta: {icon: '', name: "定时管理"}
             }
         ]
@@ -74,10 +73,13 @@ const routes = [
 
 const router = createRouter({
     history: createWebHashHistory(),
-    routes
+    routes,
+    scrollBehavior: ()=> {
+        return {
+            left: 0,
+            top: 0
+        }
+    }
 })
-
-const app = createApp({})
-app.use(router)
 
 export default router

@@ -1,7 +1,7 @@
 <template>
     <div class="stistic-box flex-box">
-        <div v-for="val in 2" class="stistic-box-item">
-            <p class="grayColor">total</p>
+        <div v-for="val in 2" :key="val" class="stistic-box-item">
+            <p class="grayColor">total{{val}}</p>
             <div>50</div>
         </div>
     </div>

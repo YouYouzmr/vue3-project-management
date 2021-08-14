@@ -24,14 +24,16 @@
 <script>
 export default {
     setup () {
-    },
-    data() {
-        return {
-            form: {
+        let form = {
                 loginName: null,
                 loginPassword: null,
                 autoLogin: true
             }
+        let rules ={
+
+            }
+        return {
+            form, rules
         }
     },
     methods: {
