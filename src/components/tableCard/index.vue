@@ -6,7 +6,7 @@
                 <slot name="title"></slot>
             </div>
         </el-col>
-        <el-col v-for="val in 6" :key="val" :xs="12" :sm="12" :md="8" :lg="8" :xl="8">
+        <el-col v-for="val in 6" :key="val" :xs="12" :sm="12" :md="8" :lg="8" :xl="6">
             <t-card></t-card>
             <slot></slot>
         </el-col>

@@ -1,30 +1,32 @@
 <template>
-  <aside :class="[collapseClass]" class="menu">
-    <div class="logo">头部名称</div>
-    <el-menu
-      :collapse="isCollapse"
-      :uniqueOpened="true"
-      :default-active="active"
-      class="el-menu-vertical-demo"
-      @open="handleOpen"
-      @close="handleClose"
-      background-color="#001529"
-      text-color="hsla(0,0%,100%,.65)"
-      active-text-color="#fff"
-    >
-      <el-submenu v-for="val in routes" :key="val.path" :index="val.path">
-        <template #title>
-          <i :class="val.meta.icon"></i>
-          <span>{{val.meta.name}}</span>
-        </template>
-        <el-menu-item-group v-if="val.children">
-          <el-menu-item v-for="item in val.children" :key="item.path" :index="`${val.path}/${item.path}`">
-            <router-link :to="`${val.path}/${item.path}`">{{item.meta.name}}</router-link>
-          </el-menu-item>
-        </el-menu-item-group>
-      </el-submenu>
-    </el-menu>
-  </aside>
+  <el-scrollbar height="100vh">
+    <aside :class="[collapseClass]" class="menu">
+      <div class="logo">头部名称</div>
+      <el-menu
+        :collapse="isCollapse"
+        :uniqueOpened="true"
+        :default-active="active"
+        class="el-menu-vertical-demo"
+        @open="handleOpen"
+        @close="handleClose"
+        background-color="#001529"
+        text-color="hsla(0,0%,100%,.65)"
+        active-text-color="#fff"
+      >
+        <el-submenu v-for="val in routes" :key="val.path" :index="val.path">
+          <template #title>
+            <i :class="val.meta.icon"></i>
+            <span>{{val.meta.name}}</span>
+          </template>
+          <el-menu-item-group v-if="val.children">
+            <el-menu-item v-for="item in val.children" :key="item.path" :index="`${val.path}/${item.path}`">
+              <router-link :to="`${val.path}/${item.path}`">{{item.meta.name}}</router-link>
+            </el-menu-item>
+          </el-menu-item-group>
+        </el-submenu>
+      </el-menu>
+    </aside>
+  </el-scrollbar>
 </template>
 
 <script>
@@ -73,7 +75,6 @@ export default {
   top: 0;
   bottom: 0;
   text-align: left;
-  overflow: hidden;
   background-color: #001529;
   transition: width 0.2s;
 
@@ -95,6 +96,8 @@ export default {
 
   .el-menu-vertical-demo {
     border-right: none;
+    width: 100% !important;
+    overflow-x: hidden;
   }
 }
 
