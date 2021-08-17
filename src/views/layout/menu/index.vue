@@ -1,5 +1,5 @@
 <template>
-    <div class="navbar">
+    <div class="menu">
         <i class="fold-i el-hover" @click="handleToggleColse" :class="[foldClass]"></i>
         <div class="fr">
             <el-dropdown>
@@ -71,49 +71,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.el-hover:hover {
-    background-color: #e6f7ff;
-}
-.navbar {
-    height: 64px;
-    line-height: 64px;
-    background-color: #fff; 
-    -webkit-box-shadow: 0 1px 4px rgba(0,21,41,.08);
-    box-shadow: 0 1px 4px rgba(0,21,41,.08);
-    font-size: 20px;
-
-    i {
-        line-height: 64px;
-    }
-
-    .fold-i {
-        font-size: 25px;
-        padding: 0 24px;
-        color: #001529;
-    }
-
-    .fr {
-        display: flex;
-        line-height: 64px;
-
-        i {
-            padding: 0 10px;
-        }
-
-        div {
-            display: flex;
-            padding: 0 10px;
-            font-size: 14px;
-            align-items: center;
-            line-height: 64px;
-
-            img{
-                width: 25px;
-                height: 25px;
-                border-radius: 100%;
-                margin-right: 5px;
-            }
-        }
-    }
-}
 </style>

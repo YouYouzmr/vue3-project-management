@@ -52,6 +52,7 @@
         },
         methods: {
             submit(formName) {
+                console.log()
                 this.$refs[formName].validate((valid) => {
                     if(valid) {
                         console.log('sumit')

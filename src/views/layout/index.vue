@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="layout" :class="[deviceClass, withoutAnimation]">
     <navbar />
     <div class="layout-content">
       <el-scrollbar height="100vh">
@@ -19,19 +19,25 @@
 </template>
 
 <script>
-import menuBar from "./menu/index";
-import navbar from "./navbar/index";
-// import breadCrumb from "@/components/breadCrumb"
-// import footerBar from "./footer/index"
+import { menuBar, navbar } from "./index.js"
+import resizeHandler from "./mixin/resizeHandler"
+import { mapState } from "vuex";
 
 export default {
   components: {
     menuBar,
     navbar,
-    // breadCrumb,
-    // footerBar
   },
-  computed: {},
+  mixins: [resizeHandler], 
+  computed: {
+    ...mapState(["sidebar"]),
+    deviceClass() {
+      return this.sidebar.device === "mobile"? "mobile" : ""
+    },
+    withoutAnimation() {
+      return this.sidebar.withoutAnimation? 'withoutAnimation' : ""
+    }
+  },
   data() {
       return {
       }
@@ -40,24 +46,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.layout {
-  display: flex;
-  flex-direction: row;
-  flex: auto;
-  background-color: #f0f2f5;
-
-  .layout-content {
-    position: relative;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-
-    main {
-      padding: 15px;
-    }
-  }
-}
 </style>

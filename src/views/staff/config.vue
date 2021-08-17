@@ -6,7 +6,7 @@
             style="min-height: 80vh" 
             stretch
             :tab-position="tabPosition">
-            <el-tab-pane v-for="val in tabList" :label="val.label" :key="val.label" :name="val.id">
+            <el-tab-pane v-for="val in tabList" :label="val.label" :key="val.label" :name="val.name">
               <div class="tab-content">
                 <div class="title">{{val.label}}</div>
                 <selfInfoForm />
@@ -25,22 +25,25 @@ export default {
       tabList: [
         {
           id: 1,
+          name: 'selfInfo',
           label: "个人信息",
           component: 'selfInfoForm'
         },
-        {
-          id: 2,
-          label: "安全设置",
-          component: 'safeInfoForm'
-        },
-        {
-          id: 3,
-          label: "消息通知",
-          component: 'noticeMessageForm'
-        }
+        // {
+        //   id: 2,
+        //   name: 'safeInfo',
+        //   label: "安全设置",
+        //   component: 'safeInfoForm'
+        // },
+        // {
+        //   id: 3,
+        //   name: 'noticeInfo',
+        //   label: "消息通知",
+        //   component: 'noticeMessageForm'
+        // }
       ],
       currentCom: 'selfInfoForm',
-      activeName: 1
+      activeName: "selfInfo"
     }
   },
   computed: {

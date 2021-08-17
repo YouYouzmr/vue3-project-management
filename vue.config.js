@@ -9,18 +9,6 @@ module.exports = {
 
 
     chainWebpack: (config) => {
-        // config.plugin("provide").use(webpack.ProvidePlugin, [
-        //     {
-        //         XE: "xe-utils",
-        //     },
-        // ]);
-        // config.plugin("define").use(webpack.DefinePlugin, [
-        //     {
-        //         VE_ENV: {
-        //             MODE: JSON.stringify(process.env.NODE_ENV),
-        //         },
-        //     },
-        // ]);
         config.plugins.delete("prefetch");
         // config.plugins.delete("preload");
         // config.optimization.delete("splitChunks");
@@ -46,6 +34,21 @@ module.exports = {
                                 name: "chunk-elementPlus",
                                 priority: 20,
                                 test: /[\\/]node_modules[\\/]_?element-plus(.*)/,
+                            },
+                            vue: {
+                                name: 'chunk-vue',
+                                priority: 20,
+                                test: /[\\/]node_modules[\\/]_?vue(.*)/,
+                            },
+                            vueRouter: {
+                                name: 'chunk-vuerouter',
+                                priority: 20,
+                                test: /[\\/]node_modules[\\/]_?vue-router(.*)/,
+                            },
+                            vuex: {
+                                name: 'chunk-vuex',
+                                priority: 20,
+                                test: /[\\/]node_modules[\\/]_?vuex(.*)/,
                             }
                         },
                     },

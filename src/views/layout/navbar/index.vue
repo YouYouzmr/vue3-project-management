@@ -1,6 +1,7 @@
 <template>
+  <div class="mask-box" :class="[collapseClass]" @click="handleClickMask"></div>
   <el-scrollbar height="100vh">
-    <aside :class="[collapseClass]" class="menu">
+    <aside :class="[collapseClass]" class="navbar">
       <div class="logo">头部名称</div>
       <el-menu
         :collapse="isCollapse"
@@ -20,7 +21,9 @@
           </template>
           <el-menu-item-group v-if="val.children">
             <el-menu-item v-for="item in val.children" :key="item.path" :index="`${val.path}/${item.path}`">
-              <router-link :to="`${val.path}/${item.path}`">{{item.meta.name}}</router-link>
+              <router-link :to="`${val.path}/${item.path}`" v-slot="{navigate}">
+                <span @click="navigate" @keypress.enter="navigate" role="link">{{item.meta.name}}</span>
+              </router-link>
             </el-menu-item>
           </el-menu-item-group>
         </el-submenu>
@@ -38,7 +41,7 @@ export default {
       return this.sidebar.isCollapse;
     },
     collapseClass() {
-      return !this.sidebar.isCollapse ? "menu-unfold" : "menu-fold";
+      return !this.sidebar.isCollapse ? "navbar-unfold" : "navbar-fold";
     },
     active() {
       return this.$route.path
@@ -56,54 +59,16 @@ export default {
     getRoutes() {
       this.routes = this.$router.options.routes.filter(val => val.path!=='/')
     },
-    handleOpen(key, keyPath) {
-      console.log(key, keyPath);
+    handleOpen() {
     },
-    handleClose(key, keyPath) {
-      console.log(key, keyPath);
+    handleClose() {
     },
+    handleClickMask() {
+      this.$store.dispatch('toggleSidebar', { withoutAnimation: false })
+    }
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.menu {
-  position: relative;
-  width: 180px;
-  height: 100vh;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  text-align: left;
-  background-color: #001529;
-  transition: width 0.2s;
-
-  &.menu-fold {
-    width: 63px;
-  }
-
-  .logo {
-    background-color: #002140;
-    height: 64px;
-    line-height: 64px;
-    padding-left: 20px;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 600px;
-    overflow: hidden;
-    transition: all 0.2s;
-  }
-
-  .el-menu-vertical-demo {
-    border-right: none;
-    width: 100% !important;
-    overflow-x: hidden;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .menu {
-    width: none;
-  }
-}
 </style>

@@ -9,6 +9,7 @@
             <el-col class="defail-container-right" :xs="24" :sm="16" :md="18" :lg="19" :xl="19">
                 <div class="base-box">
                     <el-tabs v-model="activeName" @tab-click="handleClick">
+                        <el-tab-pane label="基本信息" name="first">基本信息</el-tab-pane>
                         <el-tab-pane label="个人成长" name="second">个人成长</el-tab-pane>
                         <el-tab-pane label="项目经历" name="third">项目经历</el-tab-pane>
                     </el-tabs>
@@ -21,8 +22,18 @@
 <script>
 import userAvatar from "@/components/userInfo/userAvatar"
 export default {
+    data() {
+        return {
+            activeName: "first"
+        }
+    },
     components: {
         userAvatar
+    },
+    methods: {
+        handleClick() {
+            
+        }
     },
 }
 </script>

@@ -1,19 +1,156 @@
+// 主框架
 .layout {
-    display: flex;
-    flex-direction: row;
-    min-height: 100vh;
-    flex: auto;
-    background-color: #f0f2f5;
+  display: flex;
+  flex-direction: row;
+  flex: auto;
+  background-color: #f0f2f5;
 
-    .layout-content {
-        min-height: 100vh;
-        overflow-x: hidden;
-        display: flex;
-        flex-direction: column;
-        flex: 1;
-    }
+  .layout-content {
+    position: relative;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 
     main {
-        padding: 15px;
+      padding: 15px;
     }
+  }
+}
+
+// 头部导航
+.menu {
+  .el-hover:hover {
+    background-color: #e6f7ff;
+  }
+
+  height: 64px;
+  line-height: 64px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  font-size: 20px;
+
+  i {
+    line-height: 64px;
+  }
+
+  .fold-i {
+    font-size: 25px;
+    padding: 0 24px;
+    color: #001529;
+  }
+
+  .fr {
+    display: flex;
+    line-height: 64px;
+
+    i {
+      padding: 0 10px;
+    }
+
+    div {
+      display: flex;
+      padding: 0 10px;
+      font-size: 14px;
+      align-items: center;
+      line-height: 64px;
+
+      img {
+        width: 25px;
+        height: 25px;
+        border-radius: 100%;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+// 左侧菜单导航
+.navbar {
+  position: relative;
+  width: 180px;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  text-align: left;
+  background-color: #001529;
+  transition: width 0.2s;
+
+  &.navbar-fold {
+    width: 63px;
+  }
+
+  .logo {
+    background-color: #002140;
+    height: 64px;
+    line-height: 64px;
+    padding-left: 20px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+
+  .el-menu-vertical-demo {
+    border-right: none;
+    width: 100% !important;
+    overflow-x: hidden;
+  }
+}
+
+.mask {
+  display: none;
+}
+
+footer {
+  background-color: #001529;
+  padding: 10px;
+  color: hsla(0, 0%, 100%, 0.65);
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  font-size: 0.8em;
+}
+
+// 移动端
+.layout.mobile {
+  .navbar {
+    transition: transform .28s;
+    position: fixed;
+    z-index: 30;
+    transform: translate3d(-180px, 0, 0);
+
+    &.navbar-unfold {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  
+  
+  .mask-box{
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 20;
+    display: none;
+
+    &.navbar-unfold{
+      display: block;
+    }
+  }
+}
+
+
+// 动效设置
+.withoutAnimation {
+  .navbar {
+    transition: none;
+  }
 }
