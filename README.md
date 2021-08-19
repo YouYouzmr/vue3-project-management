@@ -55,6 +55,27 @@ svg-sprite-loader 安装 & 配置
 ```js
 npm install svg-sprite-loader -D
 
-// vue.config.js
-
+// vue.config.js 配置
+chainWebpack: (config) => {
+    ...
+    
+    // svg
+    const svgRule = config.module.rule("svg");
+    svgRule.uses.clear();
+    svgRule
+        .test(/\.svg$/)
+        .include.add(resolve(__dirname, "src/icons/svg"))
+        .end()
+        .use("svg-sprite-loader")
+        .loader("svg-sprite-loader")
+        .options({
+            symbolId: "icon-[name]"
+        })
+    ...
+}
+```
+```html
+<svg :class="[className]" :fill="fill" aria-hidden="true">
+    <use :xlink:href="#icon-iconName"/>
+</svg>
 ```

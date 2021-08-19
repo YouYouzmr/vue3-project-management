@@ -28,16 +28,6 @@ module.exports = {
             .options({
                 symbolId: "icon-[name]"
             })
-        
-        // const fileRule = config.module.rule("file");
-        // fileRule.uses.clear();
-        // fileRule
-        //     .test(/\.svg$/)
-        //     .exclude
-        //     .add(resolve(__dirname, "src/icons/svg"))
-        //     .end()
-        //     .use("file-loader")
-        //     .loader("file-loader")
     },
 
     configureWebpack: () => {
