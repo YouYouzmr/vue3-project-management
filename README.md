@@ -39,6 +39,7 @@ vue-cli webpack 是v4
 │   ├── components           # 业务通用组件
 │   ├── echarts              # echarts组件
 │   ├── icons                # .svg文件
+│   ├── redirects            # 自定义指令
 │   ├── router               # 路由配置
 │   ├── store                # vuex配置
 │   ├── styles               # 全局样式
@@ -48,4 +49,12 @@ vue-cli webpack 是v4
 ├── vue.config.js
 ├── README.md
 └── package.json
+```
+
+svg-sprite-loader 安装 & 配置
+```js
+npm install svg-sprite-loader -D
+
+// vue.config.js
+
 ```

@@ -46,3 +46,9 @@ a, a:hover, a:active {
     background-color: #fff;
     margin-bottom: 15px;
 }
+
+svg {
+    path { 
+        fill: inherit;
+    }
+}

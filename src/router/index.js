@@ -1,5 +1,5 @@
-import { createRouter, createWebHashHistory } from "vue-router"
-import layout from "@/views/layout/index"
+import { createRouter, createWebHashHistory } from "vue-router";
+import layout from "@/views/layout/index.vue";
 
 const routes = [
     {
@@ -61,11 +61,23 @@ const routes = [
         path: '/system',
         component: layout,
         meta: {icon: '', name: '系统管理'},
-        childrent: [
+        children: [
             {
                 path: 'timeout',
                 component: () => import("@/views/system/timeout"),
                 meta: {icon: '', name: "定时管理"}
+            }
+        ]
+    },
+    {
+        path: '/icons',
+        component: layout,
+        meta: {icon: '', name: 'icon图标管理'},
+        children: [
+            {
+                path: 'index',
+                component: () => import("@/views/icons/index"),
+                meta: {icon: '', name: "icon图标"}
             }
         ]
     }

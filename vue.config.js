@@ -1,7 +1,12 @@
-
 const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
+const SpriteLoaderPlugin = require("svg-sprite-loader")
+const path = require('path')
+
+function resolve(dirname, url) {
+    return path.resolve(dirname, url)
+}
 
 module.exports = {
     publicPath: "./",
@@ -10,8 +15,29 @@ module.exports = {
 
     chainWebpack: (config) => {
         config.plugins.delete("prefetch");
-        // config.plugins.delete("preload");
-        // config.optimization.delete("splitChunks");
+        
+        // svg
+        const svgRule = config.module.rule("svg");
+        svgRule.uses.clear();
+        svgRule
+            .test(/\.svg$/)
+            .include.add(resolve(__dirname, "src/icons/svg"))
+            .end()
+            .use("svg-sprite-loader")
+            .loader("svg-sprite-loader")
+            .options({
+                symbolId: "icon-[name]"
+            })
+        
+        // const fileRule = config.module.rule("file");
+        // fileRule.uses.clear();
+        // fileRule
+        //     .test(/\.svg$/)
+        //     .exclude
+        //     .add(resolve(__dirname, "src/icons/svg"))
+        //     .end()
+        //     .use("file-loader")
+        //     .loader("file-loader")
     },
 
     configureWebpack: () => {

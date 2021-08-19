@@ -19,8 +19,8 @@
 </template>
 
 <script>
-import { menuBar, navbar } from "./index.js"
-import resizeHandler from "./mixin/resizeHandler"
+import { menuBar, navbar } from "./components/index.js"
+import resizeHandler from "./components/mixin/resizeHandler"
 import { mapState } from "vuex";
 
 export default {

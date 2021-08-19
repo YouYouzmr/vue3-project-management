@@ -16,7 +16,8 @@
             <el-input v-model="form.remark" rows="4" placeholder="请输入"></el-input>
         </el-form-item>
         <el-form-item>
-            <el-button type="primary" @click="submit('ruleForm')">提 交</el-button>
+            <el-button v-prevent-re-click type="primary" @click="submit('ruleForm')">提 交</el-button>
+            <el-button v-auth="4">权 限</el-button>
         </el-form-item>
     </el-form>
 </template>
