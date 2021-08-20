@@ -51,18 +51,23 @@
       padding: 0 10px;
     }
 
-    div {
+    &>div {
       display: flex;
       padding: 0 10px;
       font-size: 14px;
       align-items: center;
       line-height: 64px;
 
-      img {
-        width: 25px;
-        height: 25px;
-        border-radius: 100%;
-        margin-right: 5px;
+      .avatar-box {
+        display: flex;
+        align-items: center;
+
+        img {
+          width: 25px;
+          height: 25px;
+          border-radius: 100%;
+          margin-right: 5px;
+        }
       }
     }
   }

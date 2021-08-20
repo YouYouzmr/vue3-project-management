@@ -4,13 +4,13 @@ const routesList = {
         routesList: []
     },
     mutations: {
-        queryroutesList(state) {
-            state.isCollapse = !state.isCollapse
+        QUERY_ROUTE_LIST(state) {
+            state.routesList = []
         }
     },
     actions: {
         toggleroutesList(context) {
-            context.commit('toggleroutesList')
+            context.commit('QUERY_ROUTE_LIST')
         }
     },
     getters: {

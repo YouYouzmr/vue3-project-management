@@ -27,7 +27,7 @@ const directives =  {
         app.directive("auth", {
             mounted(el, binding) {
                 let perssions = JSON.parse(sessionStorage.getItem('perssions'))
-                if(perssions.includes(binding.value)) {
+                if(Array.isArray(perssions) && perssions.includes(binding.value)) {
                     el.style.display = "block"
                 } else {
                     el.style.display = "none"
@@ -35,7 +35,50 @@ const directives =  {
             }
         })
 
-        // 
+        // click 防抖
+        app.directive("clickDebounce", {
+            mounted(el, binding) {
+                let timer;
+                el.addEventListener("click", ()=> {
+                    if(timer) {
+                        clearTimeout(timer)
+                    }
+                    timer = setTimeout(() => {
+                        binding.value()
+                    }, 300)
+                })
+            }
+        })
+
+        // input 防抖
+        app.directive("inputDebounce", {
+            mounted(el, binding) {
+                let timer;
+                el.addEventListener("input", ()=> {
+                    if(timer) {
+                        clearTimeout(timer)
+                    }
+                    timer = setTimeout(() => {
+                        binding.value()
+                    }, 500)
+                })
+            }
+        })
+
+        // input 防抖
+        app.directive("keyupDebounce", {
+            mounted(el, binding) {
+                let timer;
+                el.addEventListener("keyup", ()=> {
+                    if(timer) {
+                        clearTimeout(timer)
+                    }
+                    timer = setTimeout(() => {
+                        binding.value()
+                    }, 500)
+                })
+            }
+        })
     }
 }
 

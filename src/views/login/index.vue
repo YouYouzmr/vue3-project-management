@@ -2,7 +2,7 @@
     <div>
         <div class="login">
             <div class="loginTitle">企业管理平台</div>
-            <el-form :model="form" status-icon :rules="rules" ref="ruleForm">
+            <el-form :model="form" :rules="rules" ref="ruleForm">
                 <el-form-item prop="pass">
                     <el-input type="text" placeholder="请输入用户名" v-model.trim="form.loginName" autocomplete="off"></el-input>
                 </el-form-item>
@@ -23,22 +23,25 @@
 
 <script>
 export default {
-    setup () {
-        let form = {
+    data() {
+        return {
+            form: {
                 loginName: null,
                 loginPassword: null,
                 autoLogin: true
-            }
-        let rules ={
+            },
+            rules: {
 
-            }
-        return {
-            form, rules
+            },
+            inputData: null
         }
     },
     methods: {
         submit() {
             this.$router.push({path: '/dashboard/index'})
+        },
+        inputName() {
+            console.log("inputName")
         }
     },
 }

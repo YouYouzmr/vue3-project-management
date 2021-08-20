@@ -1,8 +1,10 @@
 import sidebar from './sidebar.js'
 import routesList from "./routes.js"
+import loginInfo from "./loginInfo.js"
 
 const modules = {
     sidebar,
-    routesList
+    routesList,
+    loginInfo
 }
 export default modules

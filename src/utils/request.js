@@ -1,7 +1,6 @@
 import axios from "axios"
 import { Message } from "element-plus"
 import store from "@/store"
-import { getToken } from "@/utils/auth"
 
 // 创建axios实例
 const service = axios.create({
@@ -13,8 +12,6 @@ const service = axios.create({
 service.interceptors.request.use(config => {
     // Do something before request is sent
     if(store.getters.token) {
-        // 每次请求都携带Token
-        config.headers["X-Token"] = getToken();
     }
 
     // file upload
@@ -32,7 +29,6 @@ service.interceptors.request.use(config => {
     return config
 }, error => {
     // Do something with request error
-    console.log(error)
     Promise.reject(error)
 })
 

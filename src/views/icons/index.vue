@@ -1,10 +1,10 @@
 <template>
     <div>
         <el-row :gutter="10">
-            <el-col v-for="val in list" :key="val" :span="6">
+            <el-col v-for="val in list" :key="val" :span="4">
                 <div class="base-box">
-                    <svg-icon fill="gray" class="" :iconName="val"></svg-icon>
-                    <div>{{val}}</div>
+                    <svg-icon fill="#666" class="" :iconName="val"></svg-icon>
+                    <div class="iconName">{{val}}</div>
                 </div>
             </el-col>
         </el-row>
@@ -38,8 +38,13 @@ export default {
 .base-box {
     text-align: center;
     .svg-icon {
-        width: 30%;
-        height: auto;
+        width: 36px;
+        height: 36px;
+        margin-bottom: 15px;
+    }
+
+    .iconName {
+        color: #999;
     }
 }
 </style>

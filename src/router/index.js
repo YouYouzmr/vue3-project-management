@@ -9,7 +9,7 @@ const routes = [
     {
         path: '/dashboard',
         component: layout,
-        meta: {icon: '', name: 'dashboard'},
+        meta: {icon: 'Dashboard', name: 'dashboard'},
         children: [
             {
                 path: 'index',
@@ -26,7 +26,7 @@ const routes = [
     {
         path: '/main',
         component: layout,
-        meta: {icon: '', name: '基础组件'},
+        meta: {icon: 'sale', name: '基础组件'},
         children: [
             {
                 path: 'table',
@@ -43,7 +43,7 @@ const routes = [
     {
         path: '/staff',
         component: layout,
-        meta: {icon: '', name: '个人中心'},
+        meta: {icon: 'yonghu', name: '个人中心'},
         children: [
             {
                 path: 'detail',
@@ -60,7 +60,7 @@ const routes = [
     {
         path: '/system',
         component: layout,
-        meta: {icon: '', name: '系统管理'},
+        meta: {icon: 'shezhi', name: '系统管理'},
         children: [
             {
                 path: 'timeout',
@@ -72,7 +72,7 @@ const routes = [
     {
         path: '/icons',
         component: layout,
-        meta: {icon: '', name: 'icon图标管理'},
+        meta: {icon: 'svg', name: 'icon图标管理'},
         children: [
             {
                 path: 'index',

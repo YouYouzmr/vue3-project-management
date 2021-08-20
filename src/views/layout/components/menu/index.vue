@@ -2,44 +2,34 @@
     <div class="menu">
         <i class="fold-i el-hover" @click="handleToggleColse" :class="[foldClass]"></i>
         <div class="fr">
-            <el-dropdown>
-            <i class="el-icon-bell el-hover"></i>
+            <el-dropdown class="el-hover">
+            <i class="el-icon-bell"></i>
             <template #dropdown>
                 <el-dropdown-menu>
-                <el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>
-                <el-dropdown-item icon="el-icon-circle-plus">狮子头</el-dropdown-item>
-                <el-dropdown-item icon="el-icon-circle-plus-outline">螺蛳粉</el-dropdown-item>
-                <el-dropdown-item icon="el-icon-check">双皮奶</el-dropdown-item>
-                <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item>
+                    <el-dropdown-item>新增任务10个</el-dropdown-item>
                 </el-dropdown-menu>
             </template>
             </el-dropdown>
             
-            <el-dropdown>
-            <i class="el-hover el-icon-setting"></i>
+            <el-dropdown class="el-hover">
+            <i class="el-icon-setting"></i>
             <template #dropdown>
                 <el-dropdown-menu>
-                <el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>
-                <el-dropdown-item icon="el-icon-circle-plus">狮子头</el-dropdown-item>
-                <el-dropdown-item icon="el-icon-circle-plus-outline">螺蛳粉</el-dropdown-item>
-                <el-dropdown-item icon="el-icon-check">双皮奶</el-dropdown-item>
-                <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item>
+                <el-dropdown-item>主题设置</el-dropdown-item>
                 </el-dropdown-menu>
             </template>
             </el-dropdown>
             
-            <el-dropdown>
-                <div class="el-hover">
+            <el-dropdown class="el-hover">
+                <div class="avatar-box">
                     <img :src="imgUrl" alt="头像"/>
-                    登录人名字
+                    <div class="userName">登录人名字</div>
                 </div>
                 <template #dropdown>
                     <el-dropdown-menu>
-                    <el-dropdown-item icon="el-icon-plus">黄金糕</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-circle-plus">狮子头</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-circle-plus-outline">螺蛳粉</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-check">双皮奶</el-dropdown-item>
-                    <el-dropdown-item icon="el-icon-circle-check">蚵仔煎</el-dropdown-item>
+                        <el-dropdown-item>注销</el-dropdown-item>
+                        <el-dropdown-item>个人详情</el-dropdown-item>
+                        <el-dropdown-item>信息配置</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>

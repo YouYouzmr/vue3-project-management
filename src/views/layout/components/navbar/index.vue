@@ -16,16 +16,18 @@
       >
         <el-submenu v-for="val in routes" :key="val.path" :index="val.path">
           <template #title>
-            <i :class="val.meta.icon"></i>
+            <svg-icon fill="hsla(0,0%,100%,.65)" class="iconName" :iconName="val.meta.icon"></svg-icon>
             <span>{{val.meta.name}}</span>
           </template>
-          <el-menu-item-group v-if="val.children">
+          <!-- <el-menu-item-group v-if="val.children"> -->
+          <template v-if="val.children">
             <el-menu-item v-for="item in val.children" :key="item.path" :index="`${val.path}/${item.path}`">
               <router-link :to="`${val.path}/${item.path}`" v-slot="{navigate}">
                 <span @click="navigate" @keypress.enter="navigate" role="link">{{item.meta.name}}</span>
               </router-link>
             </el-menu-item>
-          </el-menu-item-group>
+          </template>
+          <!-- </el-menu-item-group> -->
         </el-submenu>
       </el-menu>
     </aside>
@@ -71,4 +73,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.iconName { 
+  width: 1.2em;
+  height: 1.2em;
+  margin-right: 5px;
+}
 </style>

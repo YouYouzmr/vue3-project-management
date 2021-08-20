@@ -79,3 +79,12 @@ chainWebpack: (config) => {
     <use :xlink:href="#icon-iconName"/>
 </svg>
 ```
+
+
+### Directive
+```js
+// 新增防抖directive
+// v-click-debounce  click event
+// v-input-debounce  input event
+// v-keyup-debounce  keyup event
+```
