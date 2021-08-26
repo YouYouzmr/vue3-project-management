@@ -3,12 +3,22 @@
         <el-row :gutter="10">
             <el-col v-for="val in list" :key="val" :span="4">
                 <div class="base-box">
-                    <svg-icon fill="#666" class="" :iconName="val"></svg-icon>
+                    <svg-icon
+                        :iconName="val"></svg-icon>
                     <div class="iconName">{{val}}</div>
                 </div>
             </el-col>
         </el-row>
         <div>用法： {{str}}</div>
+        <dl>
+            <dl>修改svg-icon图标颜色：</dl>
+            <dd>
+                <div class="code">
+                    {{str}} <br/>
+                    {{styleStr}}
+                </div>            
+            </dd>
+        </dl>
     </div>
 </template>
 
@@ -19,7 +29,11 @@ export default {
     data() {
         return {
             list: [],
-            str: '<svg-icon :fill="color" :class="class" :iconName="iconName"></svg-icon>'
+            color: "#999",
+            str: '<svg-icon :fill="color" :class="class" :iconName="iconName"></svg-icon>',
+            styleStr: `.parent {
+                fill: red
+            }`
         }
     },
     components: {
@@ -31,20 +45,36 @@ export default {
             return val.slice(2, -4)
         })
     },
+    methods:{
+    },
 }
 </script>
 
 <style lang="scss" scoped>
 .base-box {
     text-align: center;
+
     .svg-icon {
         width: 36px;
         height: 36px;
         margin-bottom: 15px;
+        fill: #666;
+    }
+    .svg-icon:hover {
+        fill: rgb(56, 173, 255);
     }
 
     .iconName {
         color: #999;
     }
+}
+.code {
+    background: #1e1e1e;
+    color: #fff;
+    line-height: 2;
+    font-size: 0.8em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 5px 0;
 }
 </style>

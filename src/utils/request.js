@@ -10,10 +10,6 @@ const service = axios.create({
 
 // request拦截器
 service.interceptors.request.use(config => {
-    // Do something before request is sent
-    if(store.getters.token) {
-    }
-
     // file upload
     if(config.file) {
         config.headers = {
@@ -58,12 +54,12 @@ service.interceptors.response.use(res=> {
     }
 }, error=> {
     // Do something with request error
-    console.log(error)
     Message({
         message: res.msg,
         type: 'error',
         duration: 5*1000
     })
+    
     return Promise.reject(error)
 })
 
