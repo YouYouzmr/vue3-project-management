@@ -1,25 +1,30 @@
 import axios from "axios"
-import { Message } from "element-plus"
-import store from "@/store"
+import { ElMessageBox } from "element-plus"
 
 // 创建axios实例
 const service = axios.create({
-    baseURL: process.env.BASE_API, // api的base_url
-    timeout: 5000 // 请求超时
+    baseURL: process.env.VUE_APP_BASE_API, // api的base_url
+    dataType: 'JSON',
+    widthCredentials: true
 })
 
 // request拦截器
 service.interceptors.request.use(config => {
+    config.data = Object.assign(config.data, {
+        channelNo: process.env.VUE_APP_CHANNEL_NO
+    })
     // file upload
-    if(config.file) {
+    if (config.file) {
         config.headers = {
             "Content-Type": "multipart/form-data"
         }
+        config.baseURL += process.env.VUE_APP_FILE_URL
     }
     else {
         config.headers = {
             "Content-Type": "application/json; charset=utf-8"
         }
+        config.baseURL += process.env.VUE_APP_BASE_URL
     }
 
     return config
@@ -28,38 +33,46 @@ service.interceptors.request.use(config => {
     Promise.reject(error)
 })
 
-service.interceptors.response.use(res=> {
-    const res = res.data
-    if(res.code != '0') {
-        Message({
-            message: res.msg,
-            type: 'error',
-            duration: 5*1000
-        })
+service.interceptors.response.use(response => {
+    // 网络服务异常
+    if(response.status >= 500) {
+        ElMessageBox.alert("网络服务异常",  "提示")
+    } else if(response.status >= 400) {
+        ElMessageBox.alert("status 在400 - 417之间", "提示")
+    } else if (response.status >= 200) {
+        const res = response.data
+        if (res.code != '0') {
+            ElMessageBox.alert(res.msg, "提示")
 
-        // 判断登录超时
-        if(res.code="999") {
-            Message.confirm('登录超时，可继续停留了当前页面，或者重新登录', '确定登出', {
-                confirmButtonText: '重新登录',
-                cancelButtonText: '取消',
-                type: 'warning'
-            }).then(() => {
-                store.dispath("Logout").then(() => {
-                    location.reload()
+            // 判断登录超时
+            if (res.code === "999") {
+                ElMessageBox.confirm('登录超时，可继续停留了当前页面，或者重新登录', '确定登出', {
+                    confirmButtonText: '重新登录',
+                    cancelButtonText: '取消',
+                    type: 'warning'
+                }).then(() => {
+                    // store.dispath("Logout").then(() => {
+                    //     location.reload()
+                    // })
                 })
-            })
+            }
+        } else {
+            return res.data
         }
     } else {
-        return res.data
+        ElMessageBox.alert({
+            message: JSON.stringify(response),
+            type: 'error',
+            duration: 5 * 1000
+        })
     }
-}, error=> {
+}, error => {
     // Do something with request error
-    Message({
-        message: res.msg,
+    ElMessageBox.alert({
+        message: JSON.stringify(error),
         type: 'error',
-        duration: 5*1000
+        duration: 5 * 1000
     })
-    
     return Promise.reject(error)
 })
 

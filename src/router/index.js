@@ -80,6 +80,18 @@ const routes = [
                 meta: {icon: '', name: "icon图标"}
             }
         ]
+    },
+    {
+        path: '/dingding',
+        component: layout,
+        meta: {icon: 'dingtalk-circle-fill', name: '钉钉API用法'},
+        children: [
+            {
+                path: 'index',
+                component: () => import("@/views/dingding/index"),
+                meta: {icon: '', name: "钉钉API"}
+            }
+        ]
     }
 ]
 

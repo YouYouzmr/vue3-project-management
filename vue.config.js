@@ -1,7 +1,7 @@
 const webpack = require("webpack");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const CompressionWebpackPlugin = require("compression-webpack-plugin");
-const SpriteLoaderPlugin = require("svg-sprite-loader")
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 const path = require('path')
 
 function resolve(dirname, url) {
@@ -11,8 +11,6 @@ function resolve(dirname, url) {
 module.exports = {
     publicPath: "./",
     productionSourceMap: false,
-
-
     chainWebpack: (config) => {
         config.plugins.delete("prefetch");
         
@@ -33,7 +31,7 @@ module.exports = {
     configureWebpack: () => {
         let baseConfig = {};
         let envConfig = {};
-        if (process.env.NODE_ENV === "production") {
+        if (process.env.NODE_ENV !== "development") {
             // 为生产环境修改配置...
             envConfig = {
                 optimization: {
@@ -94,6 +92,7 @@ module.exports = {
                         minRatio: 0.8, // 只有压缩率小于这个值的资源才会被处理
                         // deleteOriginalAssets: true // 删除原文件
                     }),
+                    new BundleAnalyzerPlugin()
                 ],
             };
         }

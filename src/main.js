@@ -9,13 +9,14 @@ import icons from "./icons/index"
 // import Antd from 'ant-design-vue';
 // import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN';
 import ElementPlus from "element-plus"
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import "./styles/theme.scss"
 import "./styles/index.scss"
 import "default-passive-events"
 
 const app = createApp(App)
 
-app.use(ElementPlus)
+app.use(ElementPlus, {locale: zhCn})
     .use(router)
     .use(store)
     .use(directives)

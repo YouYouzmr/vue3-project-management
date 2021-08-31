@@ -14,8 +14,9 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "default-passive-events": "^2.0.0",
+    "dingtalk-jsapi": "^2.13.51",
     "echarts": "^5.1.2",
-    "element-plus": "^1.0.2-beta.70",
+    "element-plus": "^1.1.0-beta.7",
     "element-theme": "^2.0.1",
     "sass": "^1.35.2",
     "sass-loader": "^10.2.0",
@@ -37,6 +38,7 @@
     "eslint-plugin-vue": "^7.0.0",
     "svg-sprite-loader": "^6.0.9",
     "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack": "^4.46.0"
+    "webpack": "^4.46.0",
+    "webpack-bundle-analyzer": "^4.4.2"
   }
 }

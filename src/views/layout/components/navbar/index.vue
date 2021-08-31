@@ -14,21 +14,19 @@
         text-color="hsla(0,0%,100%,.65)"
         active-text-color="#fff"
       >
-        <el-submenu v-for="val in routes" :key="val.path" :index="val.path">
+        <el-sub-menu v-for="val in routes" :key="val.path" :index="val.path">
           <template #title>
             <svg-icon fill="hsla(0,0%,100%,.65)" class="iconName" :iconName="val.meta.icon"></svg-icon>
             <span>{{val.meta.name}}</span>
           </template>
           <!-- <el-menu-item-group v-if="val.children"> -->
           <template v-if="val.children">
-            <el-menu-item v-for="item in val.children" :key="item.path" :index="`${val.path}/${item.path}`">
-              <router-link :to="`${val.path}/${item.path}`" v-slot="{navigate}">
-                <span @click="navigate" @keypress.enter="navigate" role="link">{{item.meta.name}}</span>
-              </router-link>
+            <el-menu-item v-for="item in val.children" :key="item.path" :index="`${val.path}/${item.path}`" @click="localJump({url: `${val.path}/${item.path}`})">
+              <span role="link">{{item.meta.name}}</span>
             </el-menu-item>
           </template>
           <!-- </el-menu-item-group> -->
-        </el-submenu>
+        </el-sub-menu>
       </el-menu>
     </aside>
   </el-scrollbar>
@@ -67,6 +65,9 @@ export default {
     },
     handleClickMask() {
       this.$store.dispatch('toggleSidebar', { withoutAnimation: false })
+    },
+    localJump({url}) {
+      this.$router.push({path: url})
     }
   },
 };
