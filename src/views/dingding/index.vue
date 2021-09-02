@@ -5,7 +5,7 @@
             <el-table>
                 <el-table-column label="方法名"></el-table-column>
                 <el-table-column label="参数"></el-table-column>
-                <el-table-column label="参数"></el-table-column>
+                <el-table-column label=""></el-table-column>
             </el-table>
         </div>
     </div>

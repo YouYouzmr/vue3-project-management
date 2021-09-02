@@ -27,7 +27,6 @@ module.exports = {
                 symbolId: "icon-[name]"
             })
     },
-
     configureWebpack: () => {
         let baseConfig = {};
         let envConfig = {};
@@ -37,31 +36,31 @@ module.exports = {
                 optimization: {
                     splitChunks: {
                         chunks: "all",
-                        // enforceSizeThreshold: 20000,
+                        minChunks: 1, // 拆分前必须共享模块的最小chunks数
                         cacheGroups: {
                             echarts: {
                                 name: "chunk-echarts",
-                                priority: 20,
+                                priority: 0,
                                 test: /[\\/]node_modules[\\/]_?echarts(.*)/,
                             },
                             elementPlus: {
                                 name: "chunk-elementPlus",
-                                priority: 20,
+                                // priority: 0,
                                 test: /[\\/]node_modules[\\/]_?element-plus(.*)/,
                             },
                             vue: {
                                 name: 'chunk-vue',
-                                priority: 20,
+                                // priority: 0,
                                 test: /[\\/]node_modules[\\/]_?vue(.*)/,
                             },
                             vueRouter: {
                                 name: 'chunk-vuerouter',
-                                priority: 20,
+                                // priority: 0,
                                 test: /[\\/]node_modules[\\/]_?vue-router(.*)/,
                             },
                             vuex: {
                                 name: 'chunk-vuex',
-                                priority: 20,
+                                // priority: 0,
                                 test: /[\\/]node_modules[\\/]_?vuex(.*)/,
                             }
                         },
@@ -98,7 +97,6 @@ module.exports = {
         }
         return Object.assign(baseConfig, envConfig);
     },
-
     css: {
         loaderOptions: {
             less: {
@@ -123,6 +121,7 @@ module.exports = {
             scss: {
                 // additionalData: `@import "./src/styles/theme.scss"`
             }
-        }
+        },
+        extract: true
     },
 };
