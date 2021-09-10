@@ -88,3 +88,16 @@ chainWebpack: (config) => {
 // v-input-debounce  input event
 // v-keyup-debounce  keyup event
 ```
+
+### 页面
+
+**登录页面**
+
+![](.\image\login.jpg)
+
+****
+
+**平台页面**
+
+![](.\image\main.jpg)
+
