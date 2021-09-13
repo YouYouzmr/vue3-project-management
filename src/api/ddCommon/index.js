@@ -50,6 +50,7 @@ export function getConfig() {
         sessionStorage.setItem('ddConfig', JSON.stringify(res))
     })
 }
+
 // 鉴权验证
 export function initDDConfig() {
     let res = JSON.parse(sessionStorage.getItem('ddConfig'));

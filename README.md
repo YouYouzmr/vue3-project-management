@@ -15,11 +15,6 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
@@ -28,13 +23,13 @@ sass webpack v5 以上
 vue-cli webpack 是v4
 
 ``` js
-├── build                    # build 打包配置
-├── config                   # 打包配置
 ├── public
-│   └── favicon.png          # Favicon
+│   ├── favicon.png          # Favicon
 │   └── index.html           # index.html
 ├── src
-│   ├── api                  # 对应views接口、以及工作接口配置
+│   ├── api                  # 接口配置
+│   │   ├── ddCommon         # 钉钉API接口调用
+│   │   └── common           # 公共接口
 │   ├── assets               # 图片存储位置
 │   ├── components           # 业务通用组件
 │   ├── echarts              # echarts组件
@@ -46,7 +41,7 @@ vue-cli webpack 是v4
 │   ├── utils                # 工具库
 │   ├── views                # 业务页面入口和常用模板
 │   └── main.js              # 全局 JS
-├── vue.config.js
+├── vue.config.js            # vue 配置文件
 ├── README.md
 └── package.json
 ```

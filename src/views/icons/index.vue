@@ -68,13 +68,4 @@ export default {
         color: #999;
     }
 }
-.code {
-    background: #1e1e1e;
-    color: #fff;
-    line-height: 2;
-    font-size: 0.8em;
-    padding: 5px 10px;
-    border-radius: 5px;
-    margin: 5px 0;
-}
 </style>
