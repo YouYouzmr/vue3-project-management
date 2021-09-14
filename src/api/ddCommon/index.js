@@ -113,8 +113,19 @@ export function asyncSearchUser(data) {
             url: '/dingding/getMailList',
             method: "POST",
             data: { userInfo: data }
-        }).then(res=> {
+        }).then(res => {
             resolve(res)
         })
+    })
+}
+
+/**
+ * @param {*} title 当前页面标题 
+ */
+export function setHeader({ title }) {
+    dd.biz.navigation.setTitle({
+        title: title,//控制标题文本，空字符串表示显示默认文本
+        onSuccess: function (result) { },
+        onFail: function (err) { }
     })
 }
