@@ -8,6 +8,8 @@ function resolve(dirname, url) {
     return path.resolve(dirname, url)
 }
 
+const version = new Date().getTime()
+
 module.exports = {
     publicPath: "./",
     productionSourceMap: false,
@@ -33,6 +35,10 @@ module.exports = {
         if (process.env.NODE_ENV !== "development") {
             // 为生产环境修改配置...
             envConfig = {
+                output: {
+                    filename: 'js/[name].js?version='+version,
+                    chunkFilename: 'js/[name].js?version='+version,
+                },
                 optimization: {
                     splitChunks: {
                         chunks: "all",
@@ -98,6 +104,10 @@ module.exports = {
         return Object.assign(baseConfig, envConfig);
     },
     css: {
+        extract: {
+            filename: `css/[name].css?version=${version}`,
+            chunkFilename: `css/[name].css?version=${version}`,
+        },
         loaderOptions: {
             less: {
                 // http://lesscss.org/usage/#less-options-strict-units `Global Variables`

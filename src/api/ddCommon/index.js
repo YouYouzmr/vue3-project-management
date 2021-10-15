@@ -125,7 +125,7 @@ export function asyncSearchUser(data) {
 export function setHeader({ title }) {
     dd.biz.navigation.setTitle({
         title: title,//控制标题文本，空字符串表示显示默认文本
-        onSuccess: function (result) { },
-        onFail: function (err) { }
+        onSuccess: function (result) { console.log(result) },
+        onFail: function (err) { console.log(err) }
     })
 }
